@@ -1,5 +1,5 @@
 require 'dessert'
-require 'debugger'
+require 'byebug'
 
 describe Dessert, :pending => true do
   describe 'cake' do
@@ -7,16 +7,16 @@ describe Dessert, :pending => true do
       @subject = Dessert.new('cake', 400)
     end
     it 'should have 400 calories [10 points]' do
-      @subject.calories.should == 400
+      expect(@subject.calories).to be == 400
     end
     it 'should be named cake [10 points]' do
-      @subject.name.should == 'cake'
+      expect(@subject.name).to be == 'cake'
     end
     it 'should be delicious [10 points]' do
-      @subject.should be_delicious
+      expect(@subject).to be_delicious
     end
     it 'should not be healthy [10 points]' do
-      @subject.should_not be_healthy
+      expect(@subject).not_to be_healthy
     end
   end
   describe 'apple' do
@@ -24,21 +24,21 @@ describe Dessert, :pending => true do
       @subject = Dessert.new('apple', 75)
     end
     it 'should be delicious [10 points]' do
-      @subject.should be_delicious
+      expect(@subject).to be_delicious
     end
     it 'should be healthy [10 points]' do
-      @subject.should be_healthy
+      expect(@subject).to be_healthy
     end
   end
   describe 'can set' do
     before(:each) { @dessert = Dessert.new('xxx', 0) }
     it 'calories [10 points]' do
       @dessert.calories = 80
-      @dessert.calories.should == 80
+      expect(@dessert.calories).to be == 80
     end
     it 'name [10 points]' do
       @dessert.name = 'ice cream'
-      @dessert.name.should == 'ice cream'
+      expect(@dessert.name).to be == 'ice cream'
     end
   end
 end
@@ -49,13 +49,13 @@ describe JellyBean, :pending => true do
       @subject = JellyBean.new('vanilla')
     end
     it 'should contain 5 calories [5 points]' do
-      @subject.calories.should == 5
+      expect(@subject.calories).to be == 5
     end
     it 'should be named vanilla jelly bean [5 points]' do
-      @subject.name.should match /vanilla jelly bean/i
+      expect(@subject.name).to match(/vanilla jelly bean/i)
     end
     it 'should be delicious [5 points]' do
-      @subject.should be_delicious
+      expect(@subject).to be_delicious
     end
   end
   describe 'when licorice' do
@@ -63,7 +63,7 @@ describe JellyBean, :pending => true do
       @subject = JellyBean.new('licorice')
     end
     it 'should not be delicious [5 points]' do
-      @subject.should_not be_delicious
+      expect(@subject).not_to be_delicious
     end
   end
 end
