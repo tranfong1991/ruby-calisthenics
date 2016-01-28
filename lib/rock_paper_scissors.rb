@@ -1,4 +1,5 @@
 class RockPaperScissors
+  #valid moves
   @@moves = ["R","P","S"]
   
   # Exceptions this class can raise:
